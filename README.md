@@ -16,7 +16,7 @@ Are you a computer science student struggling to find a job in the 2023 economy 
     - Multiple scoreboards per user.
 
 ## Stretch Goals
-- Nested scorebords
+- Nested scoreboards
 - Automatically-recurring scoreboards.
     - To demonstrate both cases above; a recurring Quantity-type scoreboard can be set up to occur every week, with a goal of 4 visits in 7 days.
 - The Checklist-type scoreboard contains the Quantity-type scoreboard for each week. If the goal is met for a Quantity-type scoreboard, the week’s task on the Checklist is completed.
@@ -72,4 +72,9 @@ Are you a computer science student struggling to find a job in the 2023 economy 
  - [Fireship FKIT Guide](https://fireship.io/courses/sveltekit/)
 
  ## The Team
-
+ - Giang Pham
+ - Mansi Cherukupally
+ - Minseok Kim
+ - Aashay Vishwakarma
+ - Akshay Kundam
+ - Project Manager: Naveen Mukkatt
