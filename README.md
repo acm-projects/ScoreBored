@@ -1,20 +1,46 @@
 # ScoreBored
 
+Sometimes the grind is tough, and doing repetitive tasks over and over can be boring - even if they’re supposed to be for your own benefit. Scorebored combats the feeling of boredom by creating an interactive “scoreboard” to track your progress over time.
+Made a goal of going to the gym 4 times a week? Put that into Scorebored, and see how often you achieve your goal!
+Practicing a skill (like music) 2 hours a day? Scorebored handles that as well.
+Are you a computer science student struggling to find a job in the 2023 economy and have a goal to submit 1,000 applications by the end of the year?
+‌Scorebored can tell you if you’re on track!
+
+## MVP
+- Allow users two categories of tasks to track.
+    - QUANTITY: assign X completions by a certain time (the 1,000 applications by the end of the year idea). The user will input how much is done per day, and Scorebored will display a line chart showing if the user is on track, how much needs to be done per day, and their projected finish day at current pace.
+    - CHECKLIST: Whether or not something is done every time period (example: going 4 times a week to the gym.) Each week, the user can input if they were successful or not, and Scorebored will show success rate, as well as possible success rates by the time things are done.
+        - For example, if the user has completed their task 60% of the time by September, they might be able to get up to 80% by December. This gives motivation for the user to push their number up to that goal.
+    - For each category, display a chart as well as relevant numbers.
+    - Color-coding to demonstrate whether goals are being met or not.
+    - Multiple scoreboards per user.
+
+## Stretch Goals
+- Nested scorebords
+- Automatically-recurring scoreboards.
+    - To demonstrate both cases above; a recurring Quantity-type scoreboard can be set up to occur every week, with a goal of 4 visits in 7 days.
+- The Checklist-type scoreboard contains the Quantity-type scoreboard for each week. If the goal is met for a Quantity-type scoreboard, the week’s task on the Checklist is completed.
+- Ability to share scoreboard creations and templates.
+- Notifications for updating things.
+- A Todoist/Notion-style project layout to keep track of larger project scoreboards.
 
 ## Tech Stack
 
 **Frontend** 
-- Figma
-- Svelte
-- Tailwind
-- DaisyUI
+- [Figma](https://www.figma.com/)
+- [Svelte](https://svelte.dev/)
+- [Tailwind](https://tailwindcss.com/)
+- [DaisyUI](https://daisyui.com/)
+- [Chart.js](https://www.npmjs.com/package/svelte-chartjs)
 
 **Backend** 
-- Firebase
-- SvelteKit
+- [Firebase](https://firebase.google.com/)
+- [SvelteKit](https://kit.svelte.dev/)
 
-**Languages:** HTML, CSS, TypeScript
-
+**Languages:** H
+- HTML
+- CSS
+- TypeScript
 
 
 
@@ -33,3 +59,17 @@
 | 10   |                                                                                                                                                                                                                                                 | We will have several meetings to practice the presentation. We will focus on memorization, timing, body language, and voice.                                                                    | Continue practicing the presentation and making sure the demo works.                                                                                                                                      |
 | 11   | Refine presentation slides and script. Run through demo to make sure there are no bugs. Be sure to test off of UTD Wi-Fi.                                                                                                                       |                                                                                                                                                                                                 |                                                                                                                                                                                                           |
 | 12   | Presentation Night !!!                                                                                                                                                                                                                          |                                                                                                                                                                                                 |                                                                                                                                                                                                           |                                                                                                                                                           |
+
+
+## Resources
+
+ - [The Odin Project](https://www.theodinproject.com/)
+ - [Figma](https://www.figma.com/)
+ - [Svelte Tutorial](https://learn.svelte.dev/tutorial/welcome-to-svelte)
+ - [Svelte Docs](https://svelte.dev/docs/introduction)
+ - [Tailwind Guide](https://tailwindcss.com/docs/installation)
+ - [DaisyUI Docs](https://daisyui.com/docs/)
+ - [Fireship FKIT Guide](https://fireship.io/courses/sveltekit/)
+
+ ## The Team
+
