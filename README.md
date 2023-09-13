@@ -37,7 +37,7 @@ Are you a computer science student struggling to find a job in the 2023 economy 
 - [Firebase](https://firebase.google.com/)
 - [SvelteKit](https://kit.svelte.dev/)
 
-**Languages:** H
+**Languages:**
 - HTML
 - CSS
 - TypeScript
