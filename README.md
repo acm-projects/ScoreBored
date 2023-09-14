@@ -1,6 +1,6 @@
 # ScoreBored
 
-Sometimes the grind is tough, and doing repetitive tasks over and over can be boring - even if they’re supposed to be for your own benefit. Scorebored combats the feeling of boredom by creating an interactive “scoreboard” to track your progress over time.
+Good habits are central to personal improvement. But good habits take a lot of time and willpower to form, and often involve boring, repetitive tasks. Scorebored combats the feeling of boredom by creating an interactive “scoreboard” to track your progress over time.
 Made a goal of going to the gym 4 times a week? Put that into Scorebored, and see how often you achieve your goal!
 Practicing a skill (like music) 2 hours a day? Scorebored handles that as well.
 Are you a computer science student struggling to find a job in the 2023 economy and have a goal to submit 1,000 applications by the end of the year?
