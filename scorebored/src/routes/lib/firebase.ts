@@ -4,7 +4,7 @@ import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBwiwx8RxMAGss9W-NSZbytUuPsCfqFoRo",
+    apiKey: "check slack",
     authDomain: "scorebored-83730.firebaseapp.com",
     projectId: "scorebored-83730",
     storageBucket: "scorebored-83730.appspot.com",
