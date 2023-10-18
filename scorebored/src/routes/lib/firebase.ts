@@ -4,13 +4,13 @@ import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBwiwx8RxMAGss9W-NSZbytUuPsCfqFoRo",
-    authDomain: "scorebored-83730.firebaseapp.com",
-    projectId: "scorebored-83730",
-    storageBucket: "scorebored-83730.appspot.com",
-    messagingSenderId: "691079362871",
-    appId: "1:691079362871:web:787a09d302eeff5bce42b2",
-    measurementId: "G-6MBV1TNP8R"
+    apiKey: "am gonna use .env tomorrow check slack or discord for a while",
+    authDomain: "scorebored2-e7ffd.firebaseapp.com",
+    projectId: "scorebored2-e7ffd",
+    storageBucket: "scorebored2-e7ffd.appspot.com",
+    messagingSenderId: "53674957527",
+    appId: "1:53674957527:web:116c465cf243842f22ae92",
+    measurementId: "G-NF5DM6517F"
   };
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
