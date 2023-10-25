@@ -1,6 +1,7 @@
 <script lang="ts">
-    import { db } from './lib/firebase.ts';
+    import { db } from '.././lib/firebase.ts';
     import { collection, addDoc, getDocs, doc, setDoc } from 'firebase/firestore';
+  
   
     let firstname = "";
     let lastname = "";

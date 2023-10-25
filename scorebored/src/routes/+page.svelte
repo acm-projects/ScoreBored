@@ -6,3 +6,4 @@
 
 
 <a href="/createBoard"> createBoard</a>
+<a href="/database"> database</a>

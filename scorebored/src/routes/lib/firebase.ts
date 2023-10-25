@@ -4,7 +4,7 @@ import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-    apiKey: "am gonna use .env tomorrow check slack or discord for a while",
+    apiKey: "AIzaSyDGP9glve5aN5Ba0gUM43NnmzxFo5CTEJ4",
     authDomain: "scorebored2-e7ffd.firebaseapp.com",
     projectId: "scorebored2-e7ffd",
     storageBucket: "scorebored2-e7ffd.appspot.com",
