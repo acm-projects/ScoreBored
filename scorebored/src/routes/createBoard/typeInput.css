@@ -2,61 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
-    background-color: #FFF;
-    color: #000;
+:root {
+  background-color: #fff;
+  color: #000;
 }
 
-input[type="radio"]{
-    display: none;
+input[type="radio"] {
+  display: none;
 }
 
-.type-all{
-    @apply mt-20 mx-96 justify-center text-center border-solid border-4 border-black rounded-md pt-14 pb-10 bg-gradient-to-r from-green-200 to-blue-500 h-96 
-
+.typeInput-all {
+  @apply mt-20 mx-96 justify-center text-center border-solid border-4 border-black rounded-md pt-14 pb-10 bg-gradient-to-r from-green-200 to-blue-500 h-96 relative;
 }
 
-.type-box{
-    @apply grid grid-cols-1 mt-20 
+.typeInput-box {
+  @apply grid grid-cols-1 mt-5;
 }
 
-.type-header-container{
-    @apply inline-block
+.typeInput-header-container {
+  @apply inline-block;
 }
 
-.type-header-text{
-    @apply text-4xl mx-auto
+.typeInput-header-text {
+  @apply text-4xl mx-auto;
 }
 
-.type-header-text{
-    letter-spacing: 5px;
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    animation: typing 2s, cursor .4s  step-end  alternate;
-}
-
-@keyframes cursor {
-    50% {border-color: transparent;}
+.typeInput-header-text {
+  letter-spacing: 0.3rem;
+  line-height: 3rem;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 2s, step-end alternate;
 }
 
 @keyframes typing {
-    from {width: 0}
+  from {
+    width: 0;
+  }
 }
 
-.surround-box{
-    @apply border-solid border-4 mx-auto px-4 mt-5 rounded-md py-1.5 border-lime-400 text-2xl
+.surround-box {
+  @apply border-solid border-4 mx-auto px-4 mt-5 rounded-md py-1.5 border-lime-400 text-2xl;
 }
 
-.surround-box:before{
-    content: "";
-    @apply h-5 w-5 border-solid border-2 border-lime-400 rounded-full inline-block mr-4 pb-0.5
+.surround-box:before {
+  content: "";
+  @apply h-5 w-5 border-solid border-2 border-lime-400 rounded-full inline-block mr-4 pb-0.5;
 }
 
-input[type = "radio"]:checked + .surround-box{
-    @apply bg-lime-400 text-white
+input[type="radio"]:checked + .surround-box {
+  @apply bg-lime-400 text-white;
 }
 
-input[type = "radio"]:checked + .surround-box:before{
-    @apply h-5 w-5 border-solid border-white border-2 rounded-full inline-block mr-4 pb-0.5
+input[type="radio"]:checked + .surround-box:before {
+  @apply h-5 w-5 border-solid border-white border-2 rounded-full inline-block mr-4 pb-0.5;
+}
+
+.enter-btn-center {
+  @apply absolute bottom-10 mx-auto left-1/2;
+}
+
+.enter-btn-center {
+  transform: translate(-50%, -50%);
+}
+
+.enter-btn {
+  @apply grid grid-cols-2;
+}
+
+.ok-btn {
+  @apply bg-lime-400 rounded-md w-16;
+}
+
+.ok-text {
+  @apply text-center;
+}
+
+.enter-text {
+  @apply text-left text-xs my-auto;
 }

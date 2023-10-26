@@ -1,22 +1,50 @@
 <script>
 // @ts-nocheck
-
+    
     import "./typeInput.css";
+    import "@fortawesome/fontawesome-free/css/all.min.css";
+
+    export let quantityType = true;
+    
+    export let changePage0 = false;
+
+    function changePage () {
+        changePage0 = true;
+    }
+
+    const chooseQuantity = function () {
+        quantityType = true;
+    }
+
+    const chooseChecklist = function () {
+        quantityType = false;
+    }
+
 </script>
 
-<div class="type-all">
-    <div class="type-header-container">
-        <h1 class="type-header-text">Choose the type!</h1>
+<div class="typeInput-all">
+    <div class="typeInput-header-container">
+        <h1 class="typeInput-header-text">Choose the type!</h1>
     </div>
 
-    <div class="type-box">
+    <div class="typeInput-box">
 <!-- https://www.youtube.com/watch?v=sSF0bXFUFGM -->
-        <input type="radio" id="chart-box" name="radio-box" checked="checked"/>
-        <label for="chart-box" class="surround-box">Chart &ensp;&ensp;&nbsp;</label>
+        <input type="radio" id="quantity-box" name="radio-box" checked='checked' on:click = {chooseQuantity}/>
+        <label for="quantity-box" class="surround-box">&nbsp;Quantity</label>
 
-        <input type="radio" id="checklist-box" name="radio-box"/>
+        <input type="radio" id="checklist-box" name="radio-box" on:click = {chooseChecklist}/>
         <label for="checklist-box" class="surround-box">Checklist</label>
 
+        
+        <div class="enter-btn-center">
+            <div class="enter-btn">
+                <button class="ok-btn" on:click={changePage}>
+                    <div class="ok-text">OK <i class="fa-solid fa-check"/>
+                    </div>
+                </button>
+                <p class="enter-text">Press Enter &#9166;</p>
+            </div>
+        </div>
 
     </div>
 </div>

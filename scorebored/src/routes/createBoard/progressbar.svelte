@@ -1,5 +1,5 @@
 <script>
-  import "./progressbar.css";
+  import "./progressBar.css";
   import "@fortawesome/fontawesome-free/css/all.min.css";
 
   export let isClicked = [true, false, false, false];
@@ -45,7 +45,7 @@
 
     <hr class="connectline" />
     <li class="item">
-      <h2 class="bar-text">Craft</h2>
+      <h2 class="bar-text">Time</h2>
       <button on:click={toggleCircle2}>
         {#if isClicked[2]}
           <i class="fa-solid fa-circle circle-icon" />
@@ -57,7 +57,7 @@
 
     <hr class="connectline" />
     <li class="item">
-      <h2 class="bar-text">Goals</h2>
+      <h2 class="bar-text">Goal</h2>
       <button on:click={toggleCircle3}>
         {#if isClicked[3]}
           <i class="fa-solid fa-circle circle-icon" />

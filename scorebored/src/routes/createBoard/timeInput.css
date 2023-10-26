@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  background-color: #fff;
+  color: #000;
+}
+
+.timeInput-all {
+  @apply mt-20 mx-96 text-center border-solid border-4 border-black rounded-md pt-14 pb-10 bg-gradient-to-r from-green-200 to-blue-500 h-96 relative;
+}
+
+.timeInput-header-container {
+  @apply inline-block;
+}
+
+.timeInput-header-text {
+  @apply text-4xl mx-auto;
+}
+
+.timeInput-header-text {
+  letter-spacing: 0.3rem;
+  line-height: 3rem;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 2s, step-end alternate;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+.timeInput-box {
+  @apply mt-14;
+}
+
+.timeInput-form {
+  @apply text-2xl;
+}
+
+#timeInput-option {
+  @apply text-lg bg-white w-20 rounded-md;
+}
+
+.frequency-box {
+  @apply mt-12 text-2xl;
+}
+
+#frequency-number {
+  @apply w-16 bg-white pl-3 rounded-md text-lg;
+}
