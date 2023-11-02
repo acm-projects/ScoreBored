@@ -19,32 +19,34 @@
     const chooseChecklist = function () {
         quantityType = false;
     }
+    
+    
 
 </script>
 
 <div class="typeInput-all">
     <div class="typeInput-header-container">
-        <h1 class="typeInput-header-text">Choose the type!</h1>
+        <h1 class="typeInput-header-text">1. Choose the type!</h1>
     </div>
 
     <div class="typeInput-box">
 <!-- https://www.youtube.com/watch?v=sSF0bXFUFGM -->
-        <input type="radio" id="quantity-box" name="radio-box" checked='checked' on:click = {chooseQuantity}/>
-        <label for="quantity-box" class="surround-box">&nbsp;Quantity</label>
+        <input type="radio" id="quantity-box" name="radio-box"  on:click = {chooseQuantity} checked='checked'/>
+        <label for="quantity-box" class="type-surround-box">Quantity</label>
 
-        <input type="radio" id="checklist-box" name="radio-box" on:click = {chooseChecklist}/>
-        <label for="checklist-box" class="surround-box">Checklist</label>
+        <input type="radio" id="checklist-box" name="radio-box"  on:click = {chooseChecklist}/>
+        <label for="checklist-box" class="type-surround-box">Checklist</label>
 
         
-        <div class="enter-btn-center">
-            <div class="enter-btn">
-                <button class="ok-btn" on:click={changePage}>
-                    <div class="ok-text">OK <i class="fa-solid fa-check"/>
-                    </div>
-                </button>
-                <p class="enter-text">Press Enter &#9166;</p>
-            </div>
+        
+        <div class="enter-btn">
+            <button class="ok-btn" on:click={changePage}>
+                <div class="ok-text">OK <i class="fa-solid fa-check"/>
+                </div>
+            </button>
+            <span class="enter-text">Press Enter &#9166;</span>
         </div>
+        
 
     </div>
 </div>
