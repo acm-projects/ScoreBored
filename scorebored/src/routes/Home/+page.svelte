@@ -100,6 +100,7 @@ body:hover:not(.checklist) * {
             height:fit-content;
             max-width: 45%;
             margin-right: 40px;
+            font-family: Noto Serif;
         }
 
         
@@ -135,7 +136,7 @@ body:hover:not(.checklist) * {
             border-radius: 100px;
             height: 60vh ;
             box-shadow: 10px 10px 20px 0px;
-
+            
         }
 
         .separator {
@@ -159,6 +160,8 @@ body:hover:not(.checklist) * {
             box-shadow: 10px 10px 20px 0px;
             margin-left: 40px;
             height:fit-content;
+            font-family: Noto Serif;
+
         }
 
         .checklist h2:hover, .checklist h5:hover, .checklist li:hover::before {
