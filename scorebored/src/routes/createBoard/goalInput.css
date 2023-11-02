@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  background-color: #fff;
+  color: #000;
+}
+
+.goalInput-all {
+  @apply mt-20 mx-96 justify-center text-center border-solid border-4 border-black rounded-md pt-14 pb-10 bg-gradient-to-r from-green-200 to-blue-500 h-96 relative;
+}
+
+.goalInput-header-container {
+  @apply inline-block;
+}
+
+.goalInput-header-text {
+  @apply text-4xl mx-auto;
+}
+
+.goalInput-header-text {
+  letter-spacing: 0.3rem;
+  line-height: 3rem;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 2s, step-end alternate;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+.goalInput-box {
+  @apply mt-16 text-2xl;
+}
+
+#goalInput-number {
+  @apply w-16 bg-white pl-3 rounded-md text-lg;
+}
