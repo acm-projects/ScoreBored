@@ -1,15 +1,16 @@
+
 <nav>
     <a href="/"><img src="./logo.jpg" alt=""/></a>
-    <a href="#" class="toggle-button">
+    <div class="toggle-button">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
-    </a>
+    </div>
     
         <ul class="main-menu">
             <li><a href="/Home">Home</a></li>
             <li><a href="/AboutUs">About Us</a></li>
-            <li><a href="/Tutorial">Tutorial</a></li>
+            <li><a href="/createBoard">Create Board</a></li>
             <li><a href="/SignIn">Sign In</a></li>
         </ul>
     
@@ -20,11 +21,11 @@
 
 <style>
 
-body {
+/* body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-}
+} */
 
 nav {
     background-color: white;

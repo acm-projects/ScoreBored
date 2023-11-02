@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .progressbar {
-  @apply mt-36 w-full;
+  @apply w-full;
 }
 
 .listofitem {
