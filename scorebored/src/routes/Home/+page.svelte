@@ -1,3 +1,4 @@
+
 <script>
     import NavBar from "../Navbar/+page.svelte";
     import Footer from "../Footer/+page.svelte";
@@ -7,3 +8,4 @@
 <NavBar />
 <HomePage />
 <Footer />
+        
