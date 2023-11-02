@@ -1,15 +1,15 @@
 <footer>
     <div class="footer-content">
         <div class="footer-left">
-            <p>Welcome to scorebored </p>
-            <p>Email for contact:</p><br>
-            <p>ScoreBored@mail.com</p>
+            <h2>Welcome to scorebored </h2>
+            <h4>Email for contact:</h4><br>
+            <h4>ScoreBored@mail.com</h4>
         </div>
         <div class="footer-right">
             <ul class="social-icons">
-                <li><a href="#" ><img src="" alt="Facebook"></a></li>
-                <li><a href="#" ><img src="" alt="Twitter"></a></li>
-                <li><a href="#" ><img src="" alt="Instagram"></a></li>
+                <li><a href="https://www.facebook.com/" ><img src="https://shorturl.at/uFGX7" alt="Facebook"></a></li>
+                <li><a href="https://twitter.com/?lang=en" ><img src="https://shorturl.at/fsHMZ" alt="Twitter"></a></li>
+                <li><a href="https://www.instagram.com/" ><img src="https://shorturl.at/lnBFN" alt="Instagram"></a></li>
             </ul>
         </div>
     </div>
@@ -19,10 +19,11 @@
 <style>
 
 footer {
-    background-color: #18CFD8;
+    background-color: #284925;
     color: #fff;
     padding: 20px;
     margin-top: 30px;
+    opacity: 0.7;
 }
 
 .footer-content {
@@ -45,12 +46,12 @@ footer {
 
 .social-icons li {
     display: inline;
-    margin-right: 10px;
+    margin-right: 30px;
 }
 
 .social-icons img {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
 }
 
 .social-icons img:hover {
