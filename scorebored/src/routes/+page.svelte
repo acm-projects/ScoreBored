@@ -1,8 +1,6 @@
 <script>
-    import "./app.css";
+    import Home from "./Home/+page.svelte"
 </script>
-<slot />
 
+<Home/>
 
-<a href="/createBoard"> createBoard</a>
-<a href="/database"> database</a>

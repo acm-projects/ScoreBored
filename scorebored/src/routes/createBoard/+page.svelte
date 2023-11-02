@@ -1,9 +1,11 @@
 <script>
+  import ProgressBar from "./progressbar.svelte";
   import TypeInput from "./typeInput.svelte";
   import TitleInput from "./titleInput.svelte";
   import TimeInput from "./timeInput.svelte";
   import GoalInput from "./goalInput.svelte";
-  import ProgressBar from "./progressBar.svelte";
+  import NavBar from "../Navbar/+page.svelte";
+  
 
   let isPressed = [true, false, false, false];
   let nameOfBoard = '';
@@ -25,8 +27,7 @@
 
 <svelte:window on:keydown={ handleEnterKey }/>
 
-<!-- Navbar here -->
-<h1>NAVBAR NOT ADDED</h1>
+<NavBar />
 
 <main class="create-board-all">
   <ProgressBar bind:isClicked={isPressed} />
@@ -45,6 +46,7 @@
 <style>
   .create-board-all{
     background-color: #182c25;
-    height: 77vh;
+    height: 94vh;
+    padding-top: 7rem;
   }
 </style>
