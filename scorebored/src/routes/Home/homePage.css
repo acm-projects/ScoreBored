@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.homePage-mainBackground {
+  @apply flex flex-col text-3xl border-b-2;
+}
+
+.homePage-mainBackground {
+  background: url($lib/images/splash_img.jpg) center center/cover;
+  height: 91vh;
+  border-color: #408356;
+}
+
+.homePage-mainBackground h1 {
+  @apply mt-52 text-6xl ml-48 absolute;
+}
+.homePage-mainBackground h2 {
+  @apply mt-80 text-3xl ml-9 absolute text-center;
+}
+
+.homePage-mainBackground h1,
+.homePage-mainBackground h2 {
+  font-weight: bold;
+  color: #f8f0ca;
+}
+
+.homePage-secondBackground {
+  display: flex;
+  justify-content: center;
+  background-color: #182c25;
+}
+
+.homePage-checklist,
+.homePage-quantity {
+  color: #f8f0ca;
+}
+
+.homePage-quantity {
+  float: left;
+  text-align: center;
+  vertical-align: middle;
+  width: 50%;
+  box-sizing: border-box;
+  margin-top: 50px;
+  border-radius: 100px;
+  min-height: 60vh;
+  height: fit-content;
+  max-width: 45%;
+  margin-right: 40px;
+}
+
+.homePage-quantity li {
+  text-align: left;
+  max-width: 90%;
+  padding-top: 10px;
+  font-size: large;
+}
+
+.homePage-separator {
+  float: left;
+  text-align: center;
+  vertical-align: middle;
+  width: 50%;
+  box-sizing: border-box;
+  max-width: 50%;
+  margin-top: 50px;
+  font-family: Noto Serif;
+  opacity: 0.8;
+  border-radius: 100px;
+  height: 60vh;
+  box-shadow: 10px 10px 20px 0px;
+}
+
+.homePage-separator {
+  width: 4px;
+  background-color: #62d658;
+  border-radius: 1000px;
+}
+
+.homePage-checklist {
+  float: right;
+  text-align: center;
+  vertical-align: middle;
+  width: 50%;
+  box-sizing: border-box;
+  max-width: 45%;
+  margin-top: 50px;
+  font-family: Noto Serif;
+  opacity: 0.8;
+  border-radius: 100px;
+  min-height: 60vh;
+  box-shadow: 10px 10px 20px 0px;
+  margin-left: 40px;
+  height: fit-content;
+}
+
+.homePage-checklist li {
+  text-align: left;
+  padding-top: 10px;
+  max-width: 90%;
+  font-size: large;
+}

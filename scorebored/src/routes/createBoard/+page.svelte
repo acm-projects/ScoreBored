@@ -29,7 +29,7 @@
 
 <NavBar />
 
-<main class="create-board-all">
+<div class="create-board-all" >
   <ProgressBar bind:isClicked={isPressed} />
 
   {#if isPressed[0] == true && isPressed[1] == false}
@@ -41,12 +41,16 @@
     <TimeInput bind:changePage2 = {isPressed[3]}/>
   {:else} <GoalInput />
   {/if}
-</main>
+</div>
 
 <style>
+  :root{
+    color-scheme: light;
+  }
   .create-board-all{
     background-color: #182c25;
-    height: 94vh;
+    height: 90.5vh;
     padding-top: 7rem;
   }
+
 </style>

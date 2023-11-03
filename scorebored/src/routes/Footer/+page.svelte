@@ -19,11 +19,9 @@
 <style>
 
 footer {
-    background-color: #284925;
+    background-color: #182c25;
     color: #fff;
     padding: 20px;
-    margin-top: 30px;
-    opacity: 0.7;
 }
 
 .footer-content {
@@ -31,13 +29,10 @@ footer {
     justify-content: space-between;
     max-width: 960px;
     margin: 0 auto;
-    padding: 20px;
+    
 }
 
-.footer-left p {
-    margin: 0;
-    font-size: 14px;
-}
+
 
 .social-icons {
     list-style: none;
