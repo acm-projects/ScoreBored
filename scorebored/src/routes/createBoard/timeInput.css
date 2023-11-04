@@ -42,7 +42,7 @@
 }
 
 input[type="radio"]:checked + .time-option-surround-box {
-  background-color: #408356;
+  background-color: #44896e;
   animation: blinker 0.29s;
 }
 
@@ -55,6 +55,6 @@ input[type="radio"]:checked + .time-option-surround-box {
 }
 
 #frequency-number {
-  background-color: #408356;
+  background-color: #44896e;
   color: #f8f0ca;
 }

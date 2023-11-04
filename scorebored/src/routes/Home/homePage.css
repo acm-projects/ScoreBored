@@ -15,6 +15,7 @@
 .homePage-mainBackground h1 {
   @apply mt-52 text-6xl ml-48 absolute;
 }
+
 .homePage-mainBackground h2 {
   @apply mt-80 text-3xl ml-9 absolute text-center;
 }
@@ -26,78 +27,27 @@
 }
 
 .homePage-secondBackground {
-  display: flex;
-  justify-content: center;
   background-color: #182c25;
-}
-
-.homePage-checklist,
-.homePage-quantity {
   color: #f8f0ca;
 }
 
+.homePage-secondBackground {
+  @apply grid grid-cols-2 text-center align-middle py-10;
+}
+
+.homePage-header-text {
+  @apply text-3xl mb-5 font-bold;
+}
+
 .homePage-quantity {
-  float: left;
-  text-align: center;
-  vertical-align: middle;
-  width: 50%;
-  box-sizing: border-box;
-  margin-top: 50px;
-  border-radius: 100px;
-  min-height: 60vh;
-  height: fit-content;
-  max-width: 45%;
-  margin-right: 40px;
+  border-right-width: 0.2rem;
+  border-color: #44896e;
 }
 
-.homePage-quantity li {
-  text-align: left;
-  max-width: 90%;
-  padding-top: 10px;
-  font-size: large;
+.homePage-list {
+  @apply text-left ml-52 text-lg;
 }
 
-.homePage-separator {
-  float: left;
-  text-align: center;
-  vertical-align: middle;
-  width: 50%;
-  box-sizing: border-box;
-  max-width: 50%;
-  margin-top: 50px;
-  font-family: Noto Serif;
-  opacity: 0.8;
-  border-radius: 100px;
-  height: 60vh;
-  box-shadow: 10px 10px 20px 0px;
-}
-
-.homePage-separator {
-  width: 4px;
-  background-color: #62d658;
-  border-radius: 1000px;
-}
-
-.homePage-checklist {
-  float: right;
-  text-align: center;
-  vertical-align: middle;
-  width: 50%;
-  box-sizing: border-box;
-  max-width: 45%;
-  margin-top: 50px;
-  font-family: Noto Serif;
-  opacity: 0.8;
-  border-radius: 100px;
-  min-height: 60vh;
-  box-shadow: 10px 10px 20px 0px;
-  margin-left: 40px;
-  height: fit-content;
-}
-
-.homePage-checklist li {
-  text-align: left;
-  padding-top: 10px;
-  max-width: 90%;
-  font-size: large;
+.homePage-list {
+  list-style-type: disc;
 }
