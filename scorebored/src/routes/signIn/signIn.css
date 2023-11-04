@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.signin-background {
+  @apply pt-20 pb-24;
+}
+
 .signin-all {
-  @apply mt-40 justify-center text-center rounded-lg;
+  @apply justify-center rounded-lg pl-16 pb-5;
 }
 
 .signin-all {
@@ -13,9 +17,68 @@
 }
 
 .signin-header-text {
-  @apply text-4xl font-bold mb-3;
+  @apply text-4xl font-bold mb-1 pt-5;
 }
 
 .signin-form {
-  @apply grid grid-rows-3;
+  @apply grid mt-8 mr-16 text-lg;
+}
+
+.signin-input-box {
+  @apply h-10 rounded-md mb-4 mt-1 pl-2 py-2 text-lg;
+}
+
+.signin-input-box {
+  background-color: #44896e;
+  border-width: 0.16rem;
+  border-color: #182c25;
+}
+
+.signin-forgotpass {
+  @apply text-base text-right underline underline-offset-1 font-semibold mb-3;
+}
+
+.signin-button {
+  @apply rounded-2xl py-2 text-xl mb-5;
+}
+
+.signin-button {
+  background-color: #182c25;
+}
+
+.signin-or-line {
+  @apply grid grid-cols-3 justify-center text-center  mr-16;
+}
+
+.signin-line {
+  @apply mt-3;
+}
+
+.signin-line {
+  border: 0.1rem solid #182c25;
+}
+
+.signin-google {
+  @apply mr-16 rounded-2xl mt-3;
+}
+
+.signin-google {
+  background-color: #182c25;
+}
+
+.signin-google-btn {
+  @apply py-3;
+}
+
+.signin-google-btn {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.fa-google {
+  @apply ml-8 w-fit text-xl;
+}
+
+.signin-google-text {
+  @apply text-lg ml-20;
 }

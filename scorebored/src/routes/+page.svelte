@@ -3,6 +3,7 @@
     import SignIn from "./signIn/+page.svelte";
 </script>
 
-<SignIn />
+
+<Home />
     
 

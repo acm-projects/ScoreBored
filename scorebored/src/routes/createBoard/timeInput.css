@@ -3,9 +3,12 @@
 @tailwind utilities;
 
 .timeInput-all {
-  @apply mt-10 ml-96 mr-96 pt-14 pb-10 h-96;
+  @apply mt-10 mr-96 pt-14 pb-10 h-96;
 }
 
+.timeInput-all {
+  margin-left: 28rem;
+}
 .timeInput-header-container {
   @apply inline-block;
 }
@@ -35,7 +38,7 @@
 }
 
 .time-option-surround-box {
-  @apply text-center border-solid border-4 rounded-md pl-3 pr-20 py-1 w-fit;
+  @apply text-center border-solid border-4 rounded-md pl-3 pr-16 py-1;
 }
 .time-option-surround-box {
   border-color: #f8f0ca;

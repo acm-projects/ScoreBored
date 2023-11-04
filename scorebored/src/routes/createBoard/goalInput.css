@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 .goalInput-all {
-  @apply mt-10 ml-96 pt-14 pb-10 h-96;
+  @apply mt-12 mr-96 pt-14 pb-10 h-96;
+}
+
+.goalInput-all {
+  margin-left: 28rem;
 }
 
 .goalInput-header-container {

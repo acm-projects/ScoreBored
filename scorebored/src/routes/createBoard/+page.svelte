@@ -44,9 +44,6 @@
 </div>
 
 <style>
-  :root{
-    color-scheme: light;
-  }
   .create-board-all{
     background-color: #182c25;
     height: 90.5vh;

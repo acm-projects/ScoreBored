@@ -9,7 +9,7 @@
     <ul class="navbar-main-menu">
         <a href="/Home" class="navbar-link">Home</a>
         <a href="/createBoard" class="navbar-link" >Create Board</a>
-        <a href="/SignIn" class="navbar-link">Sign In</a>
+        <a href="/signIn" class="navbar-link">Sign In</a>
     </ul>
     
 </nav>
