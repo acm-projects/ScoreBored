@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.signin-all {
+  @apply mt-40 justify-center text-center rounded-lg;
+}
+
+.signin-all {
+  margin-left: 28rem;
+  margin-right: 28rem;
+  background-color: #44896e;
+}
+
+.signin-header-text {
+  @apply text-4xl font-bold mb-3;
+}
+
+.signin-form {
+  @apply grid grid-rows-3;
+}
