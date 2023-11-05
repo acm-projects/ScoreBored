@@ -39,7 +39,7 @@
 }
 
 .signin-button {
-  @apply rounded-2xl py-2 text-xl mb-5;
+  @apply rounded-2xl py-2 text-xl mb-5 font-bold;
 }
 
 .signin-button {

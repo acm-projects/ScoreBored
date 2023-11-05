@@ -10,7 +10,7 @@
     <div class="signin-all">
         <h1 class="signin-header-text">Welcome back</h1>
         <span class="text-xl">Don't have an account?&nbsp;</span> 
-        <a href="/"><span class="text-xl underline underline-offset-1 font-semibold">Create now</span> </a>
+        <a href="/signUp"><span class="text-xl underline underline-offset-1 font-semibold">Create now</span> </a>
 
         <form action="POST" class="signin-form">
             <p class="text-md">Email</p>
@@ -29,7 +29,7 @@
         </div>
 
         <div class="signin-google">
-            <button class="signin-google-btn">
+            <button type="submit" class="signin-google-btn">
                     <i class="fa-brands fa-google"></i>
                     <div class="signin-google-text">
                         <p>Continue with Google</p>
