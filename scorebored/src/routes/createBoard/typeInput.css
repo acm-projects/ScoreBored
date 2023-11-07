@@ -7,7 +7,11 @@ input[type="radio"] {
 }
 
 .typeInput-all {
-  @apply mt-10 ml-96 mr-96 pt-14 pb-10 h-96;
+  @apply mt-10 mr-96 pt-14 pb-10 h-96;
+}
+
+.typeInput-all {
+  margin-left: 28rem;
 }
 
 .typeInput-box {
@@ -46,7 +50,7 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked + .type-surround-box {
-  background-color: #408356;
+  background-color: #44896e;
   animation: blinker 0.29s;
 }
 

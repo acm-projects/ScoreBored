@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* fix padding bottom */
+.signup-background {
+  @apply pt-20 pb-40;
+}
+
+.signup-all {
+  @apply justify-center rounded-lg pl-16 pb-5;
+}
+
+.signup-all {
+  margin-left: 28rem;
+  margin-right: 28rem;
+  background-color: #44896e;
+}
+
+.signup-header-text {
+  @apply text-4xl font-bold mb-1 pt-5;
+}
+
+.signup-form {
+  @apply mt-8 text-lg;
+}
+
+.signup-name-mail {
+  @apply grid grid-cols-2;
+}
+
+.signup-input-box {
+  @apply h-10 rounded-md pl-2 py-2 text-lg w-5/6 mt-1;
+}
+
+.signup-input-box {
+  background-color: #44896e;
+  border-width: 0.16rem;
+  border-color: #182c25;
+}
+
+.signup-password {
+  @apply mt-5 block;
+}
+
+#signup-password-input {
+  @apply w-11/12;
+}
+
+.show-hid-btn {
+  @apply pl-1 mt-1;
+}
+
+#show-hid {
+  @apply w-4 h-4;
+}
+
+#show-hid:checked {
+  accent-color: #182c25;
+  color: #f8f0ca;
+}
+
+.signup-button {
+  @apply w-11/12 rounded-2xl py-2 text-xl mb-5 mt-8 font-bold;
+}
+
+.signup-button {
+  background-color: #182c25;
+}
