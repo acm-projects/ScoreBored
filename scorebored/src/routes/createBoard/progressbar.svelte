@@ -20,7 +20,7 @@
 <div class="progressbar">
   <ol class="listofitem">
     <li class="item">
-      <h2 class="bar-text">Type</h2>
+      
       <button on:click={toggleCircle0}>
         {#if isClicked[0]}
           <i class="fa-solid fa-circle circle-icon" />
@@ -30,10 +30,10 @@
       </button>
       <!-- can toggle between fa-solid and fa-regular -->
     </li>
-    <hr class="connectline" id="connectline1" />
+    <hr class="connectline" />
 
     <li class="item">
-      <h2 class="bar-text">Title</h2>
+      
       <button on:click={toggleCircle1}>
         {#if isClicked[1]}
           <i class="fa-solid fa-circle circle-icon" />
@@ -45,7 +45,7 @@
 
     <hr class="connectline" />
     <li class="item">
-      <h2 class="bar-text">Time</h2>
+      
       <button on:click={toggleCircle2}>
         {#if isClicked[2]}
           <i class="fa-solid fa-circle circle-icon" />
@@ -57,7 +57,7 @@
 
     <hr class="connectline" />
     <li class="item">
-      <h2 class="bar-text">Goal</h2>
+      
       <button on:click={toggleCircle3}>
         {#if isClicked[3]}
           <i class="fa-solid fa-circle circle-icon" />

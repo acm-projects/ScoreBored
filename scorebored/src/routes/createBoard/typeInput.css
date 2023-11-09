@@ -2,17 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  background-color: #fff;
-  color: #000;
-}
-
 input[type="radio"] {
   display: none;
 }
 
 .typeInput-all {
-  @apply mt-20 mx-96 justify-center text-center border-solid border-4 border-black rounded-md pt-14 pb-10 bg-gradient-to-r from-green-200 to-blue-500 h-96 relative;
+  @apply mt-10 mr-96 pt-14 pb-10 h-96;
+}
+
+.typeInput-all {
+  margin-left: 28rem;
 }
 
 .typeInput-box {
@@ -24,61 +23,68 @@ input[type="radio"] {
 }
 
 .typeInput-header-text {
-  @apply text-4xl mx-auto;
+  @apply text-2xl;
 }
 
 .typeInput-header-text {
-  letter-spacing: 0.3rem;
+  letter-spacing: 0.2rem;
   line-height: 3rem;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
-  animation: typing 2s, step-end alternate;
+  color: #f8f0ca;
 }
 
-@keyframes typing {
-  from {
-    width: 0;
-  }
+.type-surround-box {
+  @apply border-solid border-4 px-4 mt-5 rounded-md py-1.5 text-3xl w-4/5;
 }
 
-.surround-box {
-  @apply border-solid border-4 mx-auto px-4 mt-5 rounded-md py-1.5 border-lime-400 text-2xl;
+.type-surround-box {
+  color: #f8f0ca;
+  border-color: #f8f0ca;
 }
 
-.surround-box:before {
+.type-surround-box:before {
   content: "";
-  @apply h-5 w-5 border-solid border-2 border-lime-400 rounded-full inline-block mr-4 pb-0.5;
+  @apply h-5 w-5 border-solid border-2 rounded-full inline-block mr-4 pb-0.5;
 }
 
-input[type="radio"]:checked + .surround-box {
-  @apply bg-lime-400 text-white;
+input[type="radio"]:checked + .type-surround-box {
+  background-color: #44896e;
+  animation: blinker 0.29s;
 }
 
-input[type="radio"]:checked + .surround-box:before {
-  @apply h-5 w-5 border-solid border-white border-2 rounded-full inline-block mr-4 pb-0.5;
-}
-
-.enter-btn-center {
-  @apply absolute bottom-10 mx-auto left-1/2;
-}
-
-.enter-btn-center {
-  transform: translate(-50%, -50%);
+input[type="radio"]:checked + .type-surround-box:before {
+  @apply h-5 w-5 border-solid  border-2 rounded-full inline-block mr-4 pb-0.5;
 }
 
 .enter-btn {
-  @apply grid grid-cols-2;
+  @apply mt-9;
+}
+.enter-btn {
+  color: #f8f0ca;
 }
 
 .ok-btn {
-  @apply bg-lime-400 rounded-md w-16;
+  @apply rounded-md w-20;
+}
+
+.ok-btn {
+  background-color: #408356;
 }
 
 .ok-text {
   @apply text-center;
 }
 
-.enter-text {
-  @apply text-left text-xs my-auto;
+@keyframes blinker {
+  25% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  75% {
+    opacity: 0.9;
+  }
 }

@@ -5,13 +5,17 @@ Number of times: [input here] over the period of {time}
 <script>
     import "./goalInput.css";
     export let numberInput = 1;
+
+    function submitBoardForm() {
+        alert("Submit form!");
+    }
 </script>
 
 <div class="goalInput-all">
 
     <div class="goalInput-header-container">
         <h1 class="goalInput-header-text">
-            Create your goal!
+            4. Create your goal!
         </h1>
     </div>
 
@@ -20,13 +24,11 @@ Number of times: [input here] over the period of {time}
         <input type = "number" bind:value={ numberInput } min="1" id="goalInput-number"/>
         <span>per period</span>
     </div>
-    <div class="enter-btn-center">
-        <div class="enter-btn">
-            <button class="ok-btn">
-                <div class="ok-text">OK <i class="fa-solid fa-check"/>
-                </div>
-            </button>
-            <p class="enter-text">Press Enter &#9166;</p>
-        </div>
+    <div class="enter-btn">
+        <button class="ok-btn" on:click={ submitBoardForm }>
+            <div class="ok-text">Submit <i class="fa-solid fa-check"/>
+            </div>
+        </button>
+        <span class="enter-text">Press Enter &#9166;</span>
     </div>
 </div>

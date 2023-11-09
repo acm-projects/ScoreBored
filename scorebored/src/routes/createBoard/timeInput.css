@@ -2,54 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  background-color: #fff;
-  color: #000;
+.timeInput-all {
+  @apply mt-10 mr-96 pt-14 pb-10 h-96;
 }
 
 .timeInput-all {
-  @apply mt-20 mx-96 text-center border-solid border-4 border-black rounded-md pt-14 pb-10 bg-gradient-to-r from-green-200 to-blue-500 h-96 relative;
+  margin-left: 28rem;
 }
-
 .timeInput-header-container {
   @apply inline-block;
 }
 
 .timeInput-header-text {
-  @apply text-4xl mx-auto;
+  @apply text-2xl;
 }
 
 .timeInput-header-text {
-  letter-spacing: 0.3rem;
+  letter-spacing: 0.2rem;
   line-height: 3rem;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
-  animation: typing 2s, step-end alternate;
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
+  color: #f8f0ca;
 }
 
 .timeInput-box {
-  @apply mt-14;
+  @apply mt-10;
+}
+.timeInput-box {
+  color: #f8f0ca;
 }
 
-.timeInput-form {
-  @apply text-2xl;
+.time-options {
+  @apply text-3xl grid grid-cols-3;
 }
 
-#timeInput-option {
-  @apply text-lg bg-white w-20 rounded-md;
+.time-option-surround-box {
+  @apply text-center border-solid border-4 rounded-md pl-3 pr-16 py-1;
+}
+.time-option-surround-box {
+  border-color: #f8f0ca;
+}
+
+input[type="radio"]:checked + .time-option-surround-box {
+  background-color: #44896e;
+  animation: blinker 0.29s;
 }
 
 .frequency-box {
-  @apply mt-12 text-2xl;
+  @apply mt-8 text-3xl;
 }
 
 #frequency-number {
-  @apply w-16 bg-white pl-3 rounded-md text-lg;
+  @apply w-16 pl-3 rounded-md text-2xl;
+}
+
+#frequency-number {
+  background-color: #44896e;
+  color: #f8f0ca;
 }

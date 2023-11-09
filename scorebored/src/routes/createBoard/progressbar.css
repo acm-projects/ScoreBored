@@ -2,36 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
-    background-color: #FFF;
-    color: #000;
+.progressbar {
+  @apply w-full;
 }
 
-.progressbar{
-    @apply mt-36 mx-auto 
+.listofitem {
+  @apply flex items-center  text-2xl font-medium text-center justify-center;
 }
 
-.listofitem{
-    @apply flex items-center  text-2xl font-medium text-center justify-center
+.item {
+  @apply ml-6 mr-6 flex-row;
 }
 
-.item{
-    @apply ml-6 mr-6 flex-row
-}
-.bar-text{
-    @apply mb-3
+.connectline {
+  @apply rounded w-52 h-2.5 mt-1 border-t-0;
 }
 
-.connectline{
-    @apply rounded w-52 h-2.5 mt-9
+.connectline {
+  background-color: #f8f0ca;
 }
 
-.connectline{
-    background-color: #62D658;
+.circle-icon {
+  @apply hover:text-white hover:scale-110 duration-200;
 }
 
-
-.circle-icon{
-    @apply text-green-600 hover:text-green-400 hover:scale-110 duration-200
+.circle-icon {
+  color: #f8f0ca;
 }
-
