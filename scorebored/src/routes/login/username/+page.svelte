@@ -1,6 +1,6 @@
 <script lang="ts">
-  import AuthCheck from '../../lib/components/AuthCheck.svelte';
-  import { db } from '../../lib/firebase';
+  import AuthCheck from "$lib/components/AuthCheck.svelte";
+  import { db } from "$lib/firebase/firebase";
   import { doc, getDoc, writeBatch } from "firebase/firestore";
   import { getAuth, onAuthStateChanged } from "firebase/auth";
   import { onMount } from 'svelte';
