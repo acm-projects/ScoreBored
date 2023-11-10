@@ -1,11 +1,36 @@
-<script>
+<script lang="ts">
     // @ts-ignore
     import NavBar from "../NavBar/+page.svelte";
     import "./signUp.css";
+    import { db, auth, user } from "$lib/firebase/firebase";
+    import { doc, getDoc, writeBatch} from "firebase/firestore";    
+    import { createUserWithEmailAndPassword } from "firebase/auth";
 
     let show_password = false;
     $: type = show_password ? 'text' : 'password';
+
+    let email = '';
+    let username = '';
+    // username later
+    let password = '';
+
+    async function redirectToCreateBoard(){
+        window.location.href = "/createBoard";
+        
+    }
     
+
+    async function handleSubmit() {
+        if (!email || !password) return;
+
+        try {
+            
+            await createUserWithEmailAndPassword(auth, email, password);
+            await redirectToCreateBoard();
+        } catch (err){
+            console.log(err);
+        }
+    }
 </script>
 
 <NavBar />
@@ -17,21 +42,21 @@
         <a href="/signIn"><span class="text-xl underline underline-offset-1 font-semibold">Sign in</span></a>
 
 
-        <form action="POST" class="signup-form">
+        <div class="signup-form">
             <div class="signup-name-mail">
                 <div class="signup-name">
                     <p class=" pl-1">Name</p>
-                    <input name = "name" type = "text" class="signup-input-box"/>
+                    <input name = "name" type = "text" class="signup-input-box" bind:value={username}/>
                 </div>
 
                 <div class="signup-gmail">
                     <p class="pl-1">Email</p>
-                    <input name = "email" type = "email" class="signup-input-box"/>
+                    <input name = "email" type = "email" class="signup-input-box" bind:value={email}/>
                 </div>
             </div>
             <div class="signup-password">
                 <p class="text-md pl-1">Password</p>
-                <input name = "password" {type} class="signup-input-box" id="signup-password-input"/>
+                <input name = "password" bind:value={password} {...{type}} class="signup-input-box" id="signup-password-input" />
                 
                 <div class="show-hid-btn">
                     <input type="checkbox" on:click="{ () => show_password = !show_password }" id="show-hid"/>
@@ -40,8 +65,8 @@
 
             </div>
 
-            <button class="signup-button">Sign up</button>
-        </form>
+            <button class="signup-button" on:click={ handleSubmit }>Sign up</button>
+        </div>
 
         
     </div>
