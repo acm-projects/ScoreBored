@@ -6,7 +6,7 @@
     import "@fortawesome/fontawesome-free/css/all.min.css";
     // import ts file
     import { auth, user } from "$lib/firebase/firebase";
-    import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
+    import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword} from "firebase/auth";
 
     let mail = '';
     let password = '';
@@ -16,14 +16,25 @@
     }
     
     async function signInWithGoogle() {
-        const provider = new GoogleAuthProvider();
-        await signInWithPopup(auth, provider);
-        redirectToCreateBoard();
+        try{
+            const provider = new GoogleAuthProvider();
+            await signInWithPopup(auth, provider);
+            redirectToCreateBoard();
+        } catch(e){
+            //@ts-ignore
+            alert(e.message);
+        }
+        
     }
 
     async function signInWithEmail() {
-        await signInWithEmailAndPassword(auth, mail, password);
-        redirectToCreateBoard();
+        try{
+            await signInWithEmailAndPassword(auth, mail, password);
+            redirectToCreateBoard();
+        } catch(e){
+            //@ts-ignore
+            alert(e.message);
+        }
     }
 
 

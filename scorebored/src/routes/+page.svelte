@@ -1,7 +1,6 @@
 <script>
-    import Home from "./Home/+page.svelte"
+    import Home from "./Home/+page.svelte";
 </script>
-
 
 <Home />
     

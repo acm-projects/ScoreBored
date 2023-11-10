@@ -8,7 +8,7 @@
     }
     async function logOut(){
         await signOut(auth);
-        
+        redirectToSignIn();
     }
 
 </script>
@@ -23,7 +23,7 @@
         
 
         {#if $user}
-            <a href="/Home" class="navbar-link">Your profile</a>
+            <a href="/yourProfile" class="navbar-link">Your profile</a>
             <button class="navbar-link" on:click={ logOut }>Sign out</button>
         {:else}
             <a href="/signIn" class="navbar-link">Sign In</a>
