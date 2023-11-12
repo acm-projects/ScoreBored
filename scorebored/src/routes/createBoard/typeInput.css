@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type="radio"] {
+  display: none;
+}
+
+.typeInput-all {
+  @apply mt-10 mr-96 pt-14 pb-10 h-96;
+}
+
+.typeInput-all {
+  margin-left: 28rem;
+}
+
+.typeInput-box {
+  @apply grid grid-cols-1 mt-5;
+}
+
+.typeInput-header-container {
+  @apply inline-block;
+}
+
+.typeInput-header-text {
+  @apply text-2xl;
+}
+
+.typeInput-header-text {
+  letter-spacing: 0.2rem;
+  line-height: 3rem;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #f8f0ca;
+}
+
+.type-surround-box {
+  @apply border-solid border-4 px-4 mt-5 rounded-md py-1.5 text-3xl w-4/5;
+}
+
+.type-surround-box {
+  color: #f8f0ca;
+  border-color: #f8f0ca;
+}
+
+.type-surround-box:before {
+  content: "";
+  @apply h-5 w-5 border-solid border-2 rounded-full inline-block mr-4 pb-0.5;
+}
+
+input[type="radio"]:checked + .type-surround-box {
+  background-color: #44896e;
+  animation: blinker 0.29s;
+}
+
+input[type="radio"]:checked + .type-surround-box:before {
+  @apply h-5 w-5 border-solid  border-2 rounded-full inline-block mr-4 pb-0.5;
+}
+
+.enter-btn {
+  @apply mt-9;
+}
+.enter-btn {
+  color: #f8f0ca;
+}
+
+.ok-btn {
+  @apply rounded-md w-20;
+}
+
+.ok-btn {
+  background-color: #408356;
+}
+
+.ok-text {
+  @apply text-center;
+}
+
+@keyframes blinker {
+  25% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  75% {
+    opacity: 0.9;
+  }
+}

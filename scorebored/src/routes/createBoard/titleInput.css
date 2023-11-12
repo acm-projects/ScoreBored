@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.titleInput-all {
+  @apply mt-10  mr-96 pt-14 pb-10 h-96;
+}
+
+.titleInput-all {
+  margin-left: 28rem;
+}
+
+.titleInput-header-container {
+  @apply inline-block;
+}
+
+.titleInput-header-text {
+  @apply text-2xl;
+}
+.titleInput-header-text {
+  letter-spacing: 0.2rem;
+  line-height: 3rem;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #f8f0ca;
+}
+
+#title-Input {
+  @apply h-14 w-4/5 mt-9 text-2xl pl-2 border-b-2;
+}
+
+#title-Input {
+  background-color: #182c25;
+  border-top: hidden;
+  border-left: hidden;
+  border-right: hidden;
+  border-bottom-color: #f8f0ca;
+  color: #f8f0ca;
+}

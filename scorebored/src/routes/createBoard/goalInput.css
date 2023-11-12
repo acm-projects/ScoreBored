@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.goalInput-all {
+  @apply mt-12 mr-96 pt-14 pb-10 h-96;
+}
+
+.goalInput-all {
+  margin-left: 28rem;
+}
+
+.goalInput-header-container {
+  @apply inline-block;
+}
+
+.goalInput-header-text {
+  letter-spacing: 0.2rem;
+  line-height: 3rem;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #f8f0ca;
+}
+
+.goalInput-header-text {
+  @apply text-2xl;
+}
+.goalInput-header-text {
+  color: #f8f0ca;
+}
+.goalInput-box {
+  @apply mt-14 text-3xl;
+}
+
+.goalInput-box {
+  color: #f8f0ca;
+}
+
+#goalInput-number {
+  @apply w-24 bg-white pl-3 text-3xl border-2;
+}
+
+#goalInput-number {
+  color: #f8f0ca;
+  background-color: #182c25;
+  border-top: hidden;
+  border-left: hidden;
+  border-right: hidden;
+  border-bottom-color: #f8f0ca;
+}

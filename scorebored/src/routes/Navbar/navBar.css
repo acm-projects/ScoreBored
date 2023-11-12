@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+nav {
+  @apply flex flex-row justify-center items-center;
+}
+
+nav {
+  background-color: #182c25;
+  color: #f8f0ca;
+  justify-content: space-between;
+}
+
+.logo-text {
+  @apply font-extrabold text-3xl ml-10 my-4;
+}
+
+.navbar-main-menu {
+  @apply flex;
+}
+
+.navbar-link {
+  @apply mr-10 relative;
+}
+
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  background-color: #f8f0ca;
+  width: 0;
+  height: 0.1rem;
+  left: 0;
+  bottom: -0.29rem;
+  transition: 0.3s;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+}

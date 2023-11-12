@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.timeInput-all {
+  @apply mt-10 mr-96 pt-14 pb-10 h-96;
+}
+
+.timeInput-all {
+  margin-left: 28rem;
+}
+.timeInput-header-container {
+  @apply inline-block;
+}
+
+.timeInput-header-text {
+  @apply text-2xl;
+}
+
+.timeInput-header-text {
+  letter-spacing: 0.2rem;
+  line-height: 3rem;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #f8f0ca;
+}
+
+.timeInput-box {
+  @apply mt-10;
+}
+.timeInput-box {
+  color: #f8f0ca;
+}
+
+.time-options {
+  @apply text-3xl grid grid-cols-3;
+}
+
+.time-option-surround-box {
+  @apply text-center border-solid border-4 rounded-md pl-3 pr-16 py-1;
+}
+.time-option-surround-box {
+  border-color: #f8f0ca;
+}
+
+input[type="radio"]:checked + .time-option-surround-box {
+  background-color: #44896e;
+  animation: blinker 0.29s;
+}
+
+.frequency-box {
+  @apply mt-8 text-3xl;
+}
+
+#frequency-number {
+  @apply w-16 pl-3 rounded-md text-2xl;
+}
+
+#frequency-number {
+  background-color: #44896e;
+  color: #f8f0ca;
+}
