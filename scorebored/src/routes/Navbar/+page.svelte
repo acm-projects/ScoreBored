@@ -12,7 +12,7 @@
     }
 
 </script>
-<nav>
+<nav class="nav-all">
     <a href="/"><h1 class="logo-text">SCOREBORED</h1></a>
     
     

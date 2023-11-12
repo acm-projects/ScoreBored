@@ -14,8 +14,8 @@
     // username later
     let password = '';
 
-    async function redirectToCreateBoard(){
-        window.location.href = "/createBoard";
+    async function redirectToSetUsername(){
+        window.location.href = "/setUsername";
         
     }
     
@@ -26,7 +26,7 @@
         try {
             
             await createUserWithEmailAndPassword(auth, email, password);
-            await redirectToCreateBoard();
+            await redirectToSetUsername();
         } catch (err){
             console.log(err);
         }
@@ -43,17 +43,13 @@
 
 
         <div class="signup-form">
-            <div class="signup-name-mail">
-                <div class="signup-name">
-                    <p class=" pl-1">Name</p>
-                    <input name = "name" type = "text" class="signup-input-box" bind:value={username}/>
-                </div>
+            
 
-                <div class="signup-gmail">
-                    <p class="pl-1">Email</p>
-                    <input name = "email" type = "email" class="signup-input-box" bind:value={email}/>
-                </div>
+            <div class="signup-gmail">
+                <p class="pl-1">Email</p>
+                <input name = "email" type = "email" class="signup-input-box" bind:value={email}/>
             </div>
+            
             <div class="signup-password">
                 <p class="text-md pl-1">Password</p>
                 <input name = "password" bind:value={password} {...{type}} class="signup-input-box" id="signup-password-input" />

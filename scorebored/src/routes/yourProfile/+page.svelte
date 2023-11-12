@@ -2,6 +2,8 @@
     import "./yourProfile.css";
     //@ts-ignore
     import NavBar from "../NavBar/+page.svelte";
+    export let data;
+    
     
 </script>
 
@@ -21,13 +23,23 @@
                 <th class="yourProfile-head-action">Action</th>
             </thead>
             <tbody>
-                <tr>
+                {#each data.summaries as {slug, title, no}}
+                    <td class="yourProfile-body-no">{no}</td>
+                    <td class="yourProfile-body-name">{title}</td>
+                    <td class="yourProfile-body-progress">70%</td>
+                    <td>
+                        <button class="yourProfile-btn">Edit</button>
+                        <a href="/yourProfile/{slug}"><button class="yourProfile-btn">View</button></a>
+                        <button class="yourProfile-btn">Delete</button>
+                    </td>
+                {/each}
+                <!-- <tr>
                     <td class="yourProfile-body-no">1</td>
                     <td class="yourProfile-body-name">Going to the gym</td>
                     <td class="yourProfile-body-progress">70%</td>
                     <td>
                         <button type="button" class="yourProfile-btn">Edit</button>
-                        <button type="button" class="yourProfile-btn">View</button>
+                        <a href="/yourProfile/{slug}"><button type="button" class="yourProfile-btn">View</button></a>
                         <button type="button" class="yourProfile-btn">Delete</button>
                     </td>
                 </tr>
@@ -40,7 +52,7 @@
                         <button type="button" class="yourProfile-btn">View</button>
                         <button type="button" class="yourProfile-btn">Delete</button>
                     </td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
         

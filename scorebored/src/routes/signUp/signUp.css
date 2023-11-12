@@ -7,7 +7,7 @@
 }
 
 .signup-all {
-  @apply justify-center rounded-lg pl-16 pb-5;
+  @apply justify-center rounded-lg pl-14 pb-5;
 }
 
 .signup-all {
@@ -24,12 +24,8 @@
   @apply mt-8 text-lg;
 }
 
-.signup-name-mail {
-  @apply grid grid-cols-2;
-}
-
 .signup-input-box {
-  @apply h-10 rounded-md pl-2 py-2 text-lg w-5/6 mt-1;
+  @apply h-10 rounded-md pl-2 py-2 text-lg w-11/12 mt-1;
 }
 
 .signup-input-box {
@@ -40,10 +36,6 @@
 
 .signup-password {
   @apply mt-5 block;
-}
-
-#signup-password-input {
-  @apply w-11/12;
 }
 
 .show-hid-btn {
