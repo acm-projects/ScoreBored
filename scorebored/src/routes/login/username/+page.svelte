@@ -1,7 +1,7 @@
 <script lang="ts">
   import AuthCheck from "$lib/components/AuthCheck.svelte";
   import { db } from "$lib/firebase/firebase";
-  import { doc, getDoc, writeBatch } from "firebase/firestore";
+  import { doc, getDoc, writeBatch,addDoc,collection, setDoc } from "firebase/firestore";
   import { getAuth, onAuthStateChanged } from "firebase/auth";
   import { onMount } from 'svelte';
 
@@ -28,54 +28,33 @@
     });
   });
 
-  function generateRandomId(length) {
-    let result = '';
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const charactersLength = characters.length;
-    for (let i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
-
-  async function isIdUnique(id) {
-    const ref = doc(db, "scoreboard", id);
-    const docSnap = await getDoc(ref);
-    return !docSnap.exists();
-  }
-
   async function confirmBoardID() {
     if (!currentUser) {
       console.error("User not found");
       return;
     }
 
-    let uniqueIdFound = false;
-    while (!uniqueIdFound) {
-      BoardID = generateRandomId(10);
-      uniqueIdFound = await isIdUnique(BoardID);
-    }
-
-    const uid = currentUser.uid;
-
-    const batch = writeBatch(db);
-    batch.set(doc(db, "user", uid), { uid: uid, Username: Username });
-    batch.set(doc(db, "scoreboard", BoardID), {
-      uid,
-      BoardName,
-      datapoints,
-      isQuantity,
-      X_axis,
-      Y_axis,
-      numTarget,
-      timeTarget,
-      lastEdited: lastEdited.toISOString()
-    });
-
     try {
-      await batch.commit();
+      const scoreboardRef = await addDoc(collection(db, "scoreboard"), {
+        uid: currentUser.uid,
+        BoardName,
+        datapoints,
+        isQuantity,
+        X_axis,
+        Y_axis,
+        numTarget,
+        timeTarget,
+        lastEdited: lastEdited.toISOString()
+      });
+      
+      BoardID = scoreboardRef.id; // 자동 생성된 ID를 BoardID로 사용
+
+      await setDoc(doc(db, "user", currentUser.uid), {
+        uid: currentUser.uid,
+        Username: Username
+      });
+
       // 폼 제출 후 필드 초기화
-      BoardID = '';
       BoardName = '';
       datapoints = [];
       isQuantity = false;
@@ -86,7 +65,7 @@
       lastEdited = new Date();
       Username = '';
     } catch (error) {
-      console.error("Error in batch commit:", error);
+      console.error("Error in creating scoreboard:", error);
     }
   }
 </script>
