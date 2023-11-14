@@ -18,7 +18,13 @@
     
     <ul class="navbar-main-menu">
         <a href="/Home" class="navbar-link">Home</a>
-        <a href="/createBoard" class="navbar-link" >Create Board</a>
+
+        {#if $user}
+            <a href="/createBoard" class="navbar-link" >Create Board</a>
+        {:else}
+            <a href="/signIn" class="navbar-link" >Create Board</a>
+        {/if}
+        
 
         
 
