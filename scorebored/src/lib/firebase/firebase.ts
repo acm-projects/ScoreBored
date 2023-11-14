@@ -2,19 +2,19 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, doc, onSnapshot } from "firebase/firestore";
 import { getAuth, onAuthStateChanged, type User } from "firebase/auth";
 import { getStorage } from "firebase/storage";
-import { writable, derived } from 'svelte/store';
+import { writable, derived } from "svelte/store";
 
 // Your web app's Firebase configuration (Replace with your actual config)
 const firebaseConfig = {
-    apiKey: import.meta.env.VITE_API_KEY,
-    authDomain: "scorebored2-e7ffd.firebaseapp.com",
-    databaseURL: "https://scorebored2-e7ffd-default-rtdb.firebaseio.com",
-    projectId: "scorebored2-e7ffd",
-    storageBucket: "scorebored2-e7ffd.appspot.com",
-    messagingSenderId: "53674957527",
-    appId: "1:53674957527:web:116c465cf243842f22ae92",
-    measurementId: "G-NF5DM6517F"
-  };
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: "scorebored2-e7ffd.firebaseapp.com",
+  databaseURL: "https://scorebored2-e7ffd-default-rtdb.firebaseio.com",
+  projectId: "scorebored2-e7ffd",
+  storageBucket: "scorebored2-e7ffd.appspot.com",
+  messagingSenderId: "53674957527",
+  appId: "1:53674957527:web:116c465cf243842f22ae92",
+  measurementId: "G-NF5DM6517F",
+};
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
@@ -28,7 +28,7 @@ function userStore() {
 
   let unsubscribe: () => void;
   if (!auth || !globalThis.window) {
-    console.warn('Auth is not initialized or not in browser');
+    console.warn("Auth is not initialized or not in browser");
     return { subscribe };
   }
 
@@ -38,7 +38,7 @@ function userStore() {
 
   return {
     subscribe,
-    unsubscribe: () => unsubscribe && unsubscribe()
+    unsubscribe: () => unsubscribe && unsubscribe(),
   };
 }
 
@@ -57,7 +57,7 @@ export function docStore<T>(path: string) {
     subscribe,
     ref: docRef,
     id: docRef.id,
-    unsubscribe
+    unsubscribe,
   };
 }
 
