@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { auth, user } from '.././lib/firebase.ts';
+    import { auth, user } from '$lib/firebase/firebase';
 
     import { GoogleAuthProvider, signInWithPopup, signOut as firebaseSignOut } from "firebase/auth";
 
