@@ -15,15 +15,7 @@
   let timeTarget = 0;
   let lastEdited = new Date();
   let Username = ''; // 사용자 컬렉션에 추가할 필드
-  let loading = false;
-  let isAvailable = false;
-  let debounceTimer;
   let currentUser = null;
-
-  const re = /^(?=[a-zA-Z0-9._]{3,16}$)(?!.*[_.]{2})[^_.].*[^_.]$/;
-  $: isValid = BoardID?.length > 2 && BoardID.length < 16 && re.test(BoardID);
-  $: isTouched = BoardID.length > 0;
-  $: isTaken = isValid && !isAvailable && !loading;
 
   onMount(() => {
     const auth = getAuth();
@@ -36,16 +28,20 @@
     });
   });
 
-  async function checkAvailability() {
-    isAvailable = false;
-    clearTimeout(debounceTimer);
-    loading = true;
-    debounceTimer = setTimeout(async () => {
-      const ref = doc(db, "user", BoardID);
-      const docSnap = await getDoc(ref);
-      isAvailable = !docSnap.exists();
-      loading = false;
-    }, 500);
+  function generateRandomId(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+
+  async function isIdUnique(id) {
+    const ref = doc(db, "scoreboard", id);
+    const docSnap = await getDoc(ref);
+    return !docSnap.exists();
   }
 
   async function confirmBoardID() {
@@ -53,6 +49,13 @@
       console.error("User not found");
       return;
     }
+
+    let uniqueIdFound = false;
+    while (!uniqueIdFound) {
+      BoardID = generateRandomId(10);
+      uniqueIdFound = await isIdUnique(BoardID);
+    }
+
     const uid = currentUser.uid;
 
     const batch = writeBatch(db);
@@ -71,36 +74,28 @@
 
     try {
       await batch.commit();
+      // 폼 제출 후 필드 초기화
+      BoardID = '';
+      BoardName = '';
+      datapoints = [];
+      isQuantity = false;
+      X_axis = '';
+      Y_axis = '';
+      numTarget = 0;
+      timeTarget = 0;
+      lastEdited = new Date();
+      Username = '';
     } catch (error) {
       console.error("Error in batch commit:", error);
     }
-
-    BoardID = '';
-    BoardName = '';
-    datapoints = [];
-    isQuantity = false;
-    X_axis = '';
-    Y_axis = '';
-    numTarget = 0;
-    timeTarget = 0;
-    lastEdited = new Date();
-    Username = '';
-    isAvailable = false;
   }
 </script>
 
 <AuthCheck>
   <form class="w-2/5" on:submit|preventDefault={confirmBoardID}>
-    <input
-      type="text"
-      placeholder="BoardID"
-      class="input w-full"
-      bind:value={BoardID}
-      on:input={checkAvailability}
-      class:input-error={(!isValid && isTouched)}
-      class:input-warning={isTaken}
-      class:input-success={isAvailable && isValid && !loading}
-    />
+    <div class="text-lg font-bold my-2">
+      Board ID: {BoardID || 'Generating...'}
+    </div>
     <input
       type="text"
       placeholder="Username"
@@ -113,8 +108,7 @@
       class="input w-full my-2"
       bind:value={BoardName}
     />
-    <!-- datapoints 및 기타 필드를 위한 추가적인 입력 필드가 필요합니다. -->
-    <!-- 예시: <input type="text" placeholder="Data Points" ...> -->
+    <!-- 나머지 입력 필드도 동일하게 유지합니다. -->
     <input
       type="checkbox"
       class="checkbox"
@@ -144,7 +138,7 @@
       class="input w-full my-2"
       bind:value={timeTarget}
     />
-    <button class="btn btn-success" type="submit" disabled={!isValid || !isAvailable || loading}>
+    <button class="btn btn-success" type="submit">
       Confirm BoardID
     </button>
   </form>
