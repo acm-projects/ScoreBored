@@ -67,7 +67,7 @@
                     <td class="yourProfile-body-name">{chart.BoardName}</td>
                     <td class="yourProfile-body-progress">{chart.lastEdited.substring(5, 10)}</td>
                     <td>
-                        <button class="yourProfile-btn">Edit</button>
+                        <a href="/yourProfile/edit/{chart.id}"><button class="yourProfile-btn">Edit</button></a>
                         <a href="/yourProfile/view/{chart.id}"><button class="yourProfile-btn">View</button></a>
                         <button class="yourProfile-btn" on:click={ deleteChart(chart.id) }>Delete</button>
                     </td>

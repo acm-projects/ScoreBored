@@ -16,11 +16,11 @@
   let BoardName = '';
   // @ts-ignore
   let datapoints = []; 
-  let isQuantity = false;
-  let X_axis = '';
+  let isQuantity = true;
+  let X_axis = "day";
   let Y_axis = '';
-  let numTarget = 0;
-  let timeTarget = 0;
+  let numTarget = 1;
+  let timeTarget = 1;
   let lastEdited = new Date();
   // @ts-ignore
   let currentUser = null;
@@ -64,11 +64,11 @@
 
       BoardName = '';
       datapoints = [];
-      isQuantity = false;
-      X_axis = '';
+      isQuantity = true;
+      X_axis = "day";
       Y_axis = '';
-      numTarget = 0;
-      timeTarget = 0;
+      numTarget = 1;
+      timeTarget = 1;
       lastEdited = new Date();
     } catch (error) {
       console.error("Error in creating scoreboard:", error);
@@ -80,12 +80,11 @@
   let isPressed = [true, false, false, false];
   
   // @ts-ignore
-  function handleEnterKey(event){
+  async function handleEnterKey(event){
     if(event.key === 'Enter'){
       if (isPressed[3]) {
-        confirmBoardID();
-        // console.log(BoardName, X_axis, Y_axis, timeTarget, numTarget, isQuantity, lastEdited);
-        // window.location.href = '/yourProfile';
+        await confirmBoardID();
+        window.location.href = '/yourProfile';
       }
       else if (isPressed[2]) isPressed[3] = true;
       else if (isPressed[1]) {

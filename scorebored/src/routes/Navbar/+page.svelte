@@ -32,7 +32,7 @@
             <a href="/yourProfile" class="navbar-link">Your profile</a>
             <button class="navbar-link" on:click={ logOut }>Sign out</button>
         {:else}
-            <a href="/signIn" class="navbar-link">Sign In</a>
+            <a href="/signIn" class="navbar-link">Sign in</a>
         {/if}
     </ul>
     
