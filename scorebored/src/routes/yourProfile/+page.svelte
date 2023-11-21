@@ -5,7 +5,7 @@
     import { onMount } from "svelte";
     import { db } from "$lib/firebase/firebase";
     import { getAuth, onAuthStateChanged } from "firebase/auth";
-    import { collection, onSnapshot, QuerySnapshot } from "firebase/firestore";
+    import { collection, deleteDoc, doc, onSnapshot, QuerySnapshot } from "firebase/firestore";
     
     
     $: charts = [];
@@ -38,7 +38,10 @@
             // console.log(charts);
         });
     });
-        
+    
+    async function deleteChart(chartID: string){
+        await deleteDoc(doc(db, "scoreboard", chartID));
+    }
 </script>
 
 
@@ -65,8 +68,8 @@
                     <td class="yourProfile-body-progress">{chart.lastEdited.substring(5, 10)}</td>
                     <td>
                         <button class="yourProfile-btn">Edit</button>
-                        <a href="/yourProfile/{chart.id}"><button class="yourProfile-btn">View</button></a>
-                        <button class="yourProfile-btn">Delete</button>
+                        <a href="/yourProfile/view/{chart.id}"><button class="yourProfile-btn">View</button></a>
+                        <button class="yourProfile-btn" on:click={ deleteChart(chart.id) }>Delete</button>
                     </td>
                     </tr>
                     

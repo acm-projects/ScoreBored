@@ -1,7 +1,7 @@
 <script lang="ts">
     import './chartPage.css';
     //@ts-ignore
-    import NavBar from "../../Navbar/+page.svelte";
+    import NavBar from "../../../Navbar/+page.svelte";
     import Chart from 'chart.js/auto';
     import { onMount } from 'svelte';
 
