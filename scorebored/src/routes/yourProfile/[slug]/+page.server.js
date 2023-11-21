@@ -1,12 +1,20 @@
-import { error } from "@sveltejs/kit";
-import { charts } from "../data.js";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "$lib/firebase/firebase";
 
-export function load({ params }) {
-  const chart = charts.find((chart) => chart.slug === params.slug);
-
-  if (!chart) throw error(404);
-
+export async function load({ params }) {
+  const docRef = doc(db, "scoreboard", params.slug);
+  const docSnap = await getDoc(docRef);
+  let chartdb = {
+    uid: docSnap.data().uid,
+    datapoints: docSnap.data().datapoints,
+    timeTarget: docSnap.data().timeTarget,
+    X_axis: docSnap.data().X_axis,
+    Y_axis: docSnap.data().Y_axis,
+    isQuantity: docSnap.data().isQuantity,
+    BoardName: docSnap.data().BoardName,
+    numTarget: docSnap.data().numTarget,
+  };
   return {
-    chart,
+    chartdb,
   };
 }

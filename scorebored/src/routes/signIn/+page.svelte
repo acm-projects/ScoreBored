@@ -1,13 +1,12 @@
 <script lang="ts">
     // @ts-ignore
     import NavBar from "../NavBar/+page.svelte";
-    import Home from "../Home/+page.svelte";
     import "./signIn.css";
     import "@fortawesome/fontawesome-free/css/all.min.css";
     // import ts file
-    import { auth, user } from "$lib/firebase/firebase";
+    import { auth } from "$lib/firebase/firebase";
     import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword} from "firebase/auth";
-
+    
     let mail = '';
     let password = '';
 

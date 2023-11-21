@@ -8,31 +8,23 @@
 
   // Back end starts here
   import { db } from "$lib/firebase/firebase";
-  import { doc, getDoc, writeBatch } from "firebase/firestore";
+  import { addDoc, collection } from "firebase/firestore";
   import { getAuth, onAuthStateChanged } from "firebase/auth";
   import { onMount } from 'svelte';
 
-  let BoardID = "zfgzbf";
+  let BoardID = "";
   let BoardName = '';
   // @ts-ignore
-  let datapoints = [];
+  let datapoints = []; 
   let isQuantity = false;
   let X_axis = '';
-  let Y_axis = 'Quantity';
+  let Y_axis = '';
   let numTarget = 0;
   let timeTarget = 0;
   let lastEdited = new Date();
-  let Username = 'Tommy';
-  let loading = false;
-  let isAvailable = false;
-  let debounceTimer: NodeJS.Timeout;
   // @ts-ignore
   let currentUser = null;
 
-  const re = /^(?=[a-zA-Z0-9._]{3,16}$)(?!.*[_.]{2})[^_.].*[^_.]$/;
-  $: isValid = BoardID?.length > 2 && BoardID.length < 16 && re.test(BoardID);
-  $: isTouched = BoardID.length > 0;
-  $: isTaken = isValid && !isAvailable && !loading;
 
   onMount(() => {
     const auth = getAuth();
@@ -41,22 +33,11 @@
         currentUser = user;
       } else {
         currentUser = null;
+        console.log("hihi");
       }
     });
+    
   });
-
-  // Do we still need the checkAvailability?
-  async function checkAvailability() {
-    isAvailable = false;
-    clearTimeout(debounceTimer);
-    loading = true;
-    debounceTimer = setTimeout(async () => {
-      const ref = doc(db, "user", BoardID);
-      const docSnap = await getDoc(ref);
-      isAvailable = !docSnap.exists();
-      loading = false;
-    }, 500);
-  }
 
   async function confirmBoardID() {
     // @ts-ignore
@@ -64,53 +45,46 @@
       console.error("User not found");
       return;
     }
-    const uid = currentUser.uid;
-
-    const batch = writeBatch(db);
-    await batch.set(doc(db, "user", uid), { uid: uid, Username: Username });
-    await batch.set(doc(db, "scoreboard", BoardID), {
-      uid,
-      BoardName,
-      // @ts-ignore
-      datapoints,
-      isQuantity,
-      X_axis,
-      Y_axis,
-      numTarget,
-      timeTarget,
-      lastEdited: lastEdited.toISOString()
-    });
-
     try {
-      await batch.commit();
-    } catch (error) {
-      console.error("Error in batch commit:", error);
-    }
+      const scoreboardRef = await addDoc(collection(db, "scoreboard"), {
+        // @ts-ignore
+        uid: currentUser.uid,
+        BoardName,
+        // @ts-ignore
+        datapoints,
+        isQuantity,
+        X_axis,
+        Y_axis,
+        numTarget,
+        timeTarget,
+        lastEdited: lastEdited.toISOString()
+      });
+      
+      BoardID = scoreboardRef.id; 
 
-    BoardID = '';
-    BoardName = '';
-    datapoints = [];
-    isQuantity = false;
-    X_axis = '';
-    // Y_axis should always be Quantity????
-    Y_axis = 'Quantity';
-    numTarget = 0;
-    timeTarget = 0;
-    lastEdited = new Date();
-    isAvailable = false;
+      BoardName = '';
+      datapoints = [];
+      isQuantity = false;
+      X_axis = '';
+      Y_axis = '';
+      numTarget = 0;
+      timeTarget = 0;
+      lastEdited = new Date();
+    } catch (error) {
+      console.error("Error in creating scoreboard:", error);
+    }
   }
 
   //**********/ Back end stops here
 
   let isPressed = [true, false, false, false];
   
-  
   // @ts-ignore
   function handleEnterKey(event){
     if(event.key === 'Enter'){
       if (isPressed[3]) {
         confirmBoardID();
-        console.log(BoardName, X_axis, Y_axis, timeTarget, numTarget, isQuantity, lastEdited);
+        // console.log(BoardName, X_axis, Y_axis, timeTarget, numTarget, isQuantity, lastEdited);
         // window.location.href = '/yourProfile';
       }
       else if (isPressed[2]) isPressed[3] = true;

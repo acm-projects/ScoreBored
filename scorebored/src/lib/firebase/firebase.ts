@@ -61,6 +61,7 @@ export function docStore<T>(path: string) {
   };
 }
 
+// Is this necessary???????????/
 // User data interface
 interface UserData {
   username: string;

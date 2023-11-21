@@ -20,9 +20,9 @@
         <a href="/Home" class="navbar-link">Home</a>
 
         {#if $user}
-            <a href="/createBoard" class="navbar-link" >Create Board</a>
+            <a href="/createBoard" class="navbar-link" >Create board</a>
         {:else}
-            <a href="/signIn" class="navbar-link" >Create Board</a>
+            <a href="/signIn" class="navbar-link" >Create board</a>
         {/if}
         
 

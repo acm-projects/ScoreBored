@@ -7,7 +7,7 @@
 }
 
 .chartPage-all {
-  @apply justify-center rounded-lg pl-16 pb-5;
+  @apply justify-center rounded-lg pl-9 pr-7 pt-4 pb-5;
 }
 
 .chartPage-all {
