@@ -29,7 +29,7 @@
 }
 
 .editPage-index-inputbox {
-  @apply rounded-md pl-3 py-1 w-5/12;
+  @apply rounded-md ml-1 pl-3 py-1 w-5/12;
 }
 
 .editPage-index-inputbox {
@@ -70,7 +70,7 @@ input[type="radio"]:checked + .checklistOptionSurroundBox {
 }
 
 .editPage-quantity-inputbox {
-  @apply rounded-md w-5/12 ml-6 pl-3 py-1;
+  @apply rounded-md w-5/12 ml-4 pl-3 py-1;
 }
 
 .editPage-quantity-inputbox {

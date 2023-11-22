@@ -41,7 +41,15 @@
         changeValue = 1;
     }
 
+    async function handleEnterKey(event: any){
+        if (event.key === "Enter"){
+            updateChartDatabase();
+        }
+    }
+
 </script>
+
+<svelte:window on:keydown={ handleEnterKey }/>
 
 <NavBar />
 <div class="editPage-background">
