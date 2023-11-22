@@ -18,7 +18,13 @@
     
     <ul class="navbar-main-menu">
         <a href="/Home" class="navbar-link">Home</a>
-        <a href="/createBoard" class="navbar-link" >Create Board</a>
+
+        {#if $user}
+            <a href="/createBoard" class="navbar-link" >Create board</a>
+        {:else}
+            <a href="/signIn" class="navbar-link" >Create board</a>
+        {/if}
+        
 
         
 
@@ -26,7 +32,7 @@
             <a href="/yourProfile" class="navbar-link">Your profile</a>
             <button class="navbar-link" on:click={ logOut }>Sign out</button>
         {:else}
-            <a href="/signIn" class="navbar-link">Sign In</a>
+            <a href="/signIn" class="navbar-link">Sign in</a>
         {/if}
     </ul>
     

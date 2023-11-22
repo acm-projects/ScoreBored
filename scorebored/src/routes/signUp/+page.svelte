@@ -2,8 +2,7 @@
     // @ts-ignore
     import NavBar from "../NavBar/+page.svelte";
     import "./signUp.css";
-    import { db, auth, user } from "$lib/firebase/firebase";
-    import { doc, getDoc, writeBatch} from "firebase/firestore";    
+    import { auth} from "$lib/firebase/firebase";
     import { createUserWithEmailAndPassword } from "firebase/auth";
 
     let show_password = false;
@@ -14,8 +13,8 @@
     // username later
     let password = '';
 
-    async function redirectToSetUsername(){
-        window.location.href = "/setUsername";
+    async function redirectToCreateBoard(){
+        window.location.href = "/createBoard";
         
     }
     
@@ -26,7 +25,7 @@
         try {
             
             await createUserWithEmailAndPassword(auth, email, password);
-            await redirectToSetUsername();
+            await redirectToCreateBoard();
         } catch (err){
             console.log(err);
         }
