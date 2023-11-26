@@ -7,7 +7,7 @@ Number of times: [input here] over the period of {time}
     export let numberInput = 1;
 
     function submitBoardForm() {
-        alert("Submit form!");
+        alert("Press Enter to submit form!");
     }
 </script>
 

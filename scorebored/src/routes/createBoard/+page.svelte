@@ -1,22 +1,94 @@
-<script>
+<script lang="ts">
   import ProgressBar from "./progressbar.svelte";
   import TypeInput from "./typeInput.svelte";
   import TitleInput from "./titleInput.svelte";
   import TimeInput from "./timeInput.svelte";
   import GoalInput from "./goalInput.svelte";
   import NavBar from "../Navbar/+page.svelte";
-  
+
+  // Back end starts here
+  import { db } from "$lib/firebase/firebase";
+  import { addDoc, collection } from "firebase/firestore";
+  import { getAuth, onAuthStateChanged } from "firebase/auth";
+  import { onMount } from 'svelte';
+
+  let BoardID = "";
+  let BoardName = '';
+  // @ts-ignore
+  let datapoints = []; 
+  let isQuantity = true;
+  let X_axis = "day";
+  let Y_axis = '';
+  let numTarget = 1;
+  let timeTarget = 1;
+  let lastEdited = new Date();
+  // @ts-ignore
+  let currentUser = null;
+
+
+  onMount(() => {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        currentUser = user;
+      } else {
+        currentUser = null;
+        console.log("hihi");
+      }
+    });
+    
+  });
+
+  async function confirmBoardID() {
+    // @ts-ignore
+    if (!currentUser) {
+      console.error("User not found");
+      return;
+    }
+    try {
+      const scoreboardRef = await addDoc(collection(db, "scoreboard"), {
+        // @ts-ignore
+        uid: currentUser.uid,
+        BoardName,
+        // @ts-ignore
+        datapoints,
+        isQuantity,
+        X_axis,
+        Y_axis,
+        numTarget,
+        timeTarget,
+        lastEdited: lastEdited.toISOString()
+      });
+      
+      BoardID = scoreboardRef.id; 
+
+      BoardName = '';
+      datapoints = [];
+      isQuantity = true;
+      X_axis = "day";
+      Y_axis = '';
+      numTarget = 1;
+      timeTarget = 1;
+      lastEdited = new Date();
+    } catch (error) {
+      console.error("Error in creating scoreboard:", error);
+    }
+  }
+
+  //**********/ Back end stops here
 
   let isPressed = [true, false, false, false];
-  let nameOfBoard = '';
   
   // @ts-ignore
-  function handleEnterKey(event){
+  async function handleEnterKey(event){
     if(event.key === 'Enter'){
-      if (isPressed[3]) alert("Submit form");
+      if (isPressed[3]) {
+        await confirmBoardID();
+        window.location.href = '/yourProfile';
+      }
       else if (isPressed[2]) isPressed[3] = true;
       else if (isPressed[1]) {
-        if (nameOfBoard === '') alert("Please input board's name!");
+        if (BoardName === '') alert("Please input board's name!");
         else isPressed[2] = true;
       }
       else if (isPressed[0]) isPressed[1] = true;
@@ -33,13 +105,16 @@
   <ProgressBar bind:isClicked={isPressed} />
 
   {#if isPressed[0] == true && isPressed[1] == false}
-    <TypeInput bind:changePage0 = {isPressed[1]}/>
+  <!-- this is the board's type (true -> quantity, false -> checklist) -->
+    <TypeInput bind:changePage0 = {isPressed[1]} bind:quantityType = {isQuantity}/>
   {:else if isPressed[1] == true && isPressed[2] == false}
-    <TitleInput bind:changePage1 = {isPressed[2]} bind:nameOfBoard/>
+  <!-- Input the title of the board -->
+    <TitleInput bind:changePage1 = {isPressed[2]} bind:nameOfBoard = {BoardName}/>
 
   {:else if isPressed[2] == true && isPressed[3] == false}
-    <TimeInput bind:changePage2 = {isPressed[3]}/>
-  {:else} <GoalInput />
+  <!-- Input the time target and the x-axis -->
+    <TimeInput bind:changePage2 = {isPressed[3]} bind:timeSelected = {X_axis} bind:frequency = {timeTarget}/>
+  {:else} <GoalInput bind:numberInput = {numTarget} />
   {/if}
 </div>
 

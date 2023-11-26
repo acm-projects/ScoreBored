@@ -1,10 +1,43 @@
-<script>
+<script lang="ts">
     // @ts-ignore
     import NavBar from "../NavBar/+page.svelte";
     import "./signIn.css";
+    import "@fortawesome/fontawesome-free/css/all.min.css";
+    // import ts file
+    import { auth } from "$lib/firebase/firebase";
+    import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword} from "firebase/auth";
     
-</script>
+    let mail = '';
+    let password = '';
 
+    async function redirectToCreateBoard(){
+        window.location.href = "/createBoard"
+    }
+    
+    async function signInWithGoogle() {
+        try{
+            const provider = new GoogleAuthProvider();
+            await signInWithPopup(auth, provider);
+            redirectToCreateBoard();
+        } catch(e){
+            //@ts-ignore
+            alert(e.message);
+        }
+        
+    }
+
+    async function signInWithEmail() {
+        try{
+            await signInWithEmailAndPassword(auth, mail, password);
+            redirectToCreateBoard();
+        } catch(e){
+            //@ts-ignore
+            alert(e.message);
+        }
+    }
+
+
+</script>
 <NavBar />
 <div class="signin-background">
     <div class="signin-all">
@@ -12,16 +45,16 @@
         <span class="text-xl">Don't have an account?&nbsp;</span> 
         <a href="/signUp"><span class="text-xl underline underline-offset-1 font-semibold">Create now</span> </a>
 
-        <form action="POST" class="signin-form">
+        <div class="signin-form">
             <p class="text-md">Email</p>
-            <input name = "email" type="email" class="signin-input-box"/>
+            <input name = "email" type="email" bind:value={ mail } class="signin-input-box"/>
             
             <p class="text-md">Password</p>
-            <input name = "password" type="password" class="signin-input-box"/>
+            <input name = "password" type="password" bind:value={ password } class="signin-input-box"  />
         
-            <a href="/"><p class="signin-forgotpass">Forgot password?</p></a>
-            <button class="signin-button">Sign in</button>
-        </form>
+            <a href="/forgotPassword"><p class="signin-forgotpass">Forgot password?</p></a>
+            <button class="signin-button" on:click={ signInWithEmail }>Sign in</button>
+        </div>
         <div class="signin-or-line">
             <hr class="signin-line ml-1"/>
             <span>OR</span>
@@ -29,7 +62,7 @@
         </div>
 
         <div class="signin-google">
-            <button type="submit" class="signin-google-btn">
+            <button type="button" class="signin-google-btn" on:click={ signInWithGoogle }>
                     <i class="fa-brands fa-google"></i>
                     <div class="signin-google-text">
                         <p>Continue with Google</p>
@@ -45,3 +78,4 @@
         color: #f8f0ca;
     }
 </style>
+

@@ -39,7 +39,7 @@
 }
 
 .signin-button {
-  @apply rounded-2xl py-2 text-xl mb-5 font-bold;
+  @apply rounded-2xl text-xl py-3 mb-5 font-bold;
 }
 
 .signin-button {
@@ -76,9 +76,9 @@
 }
 
 .fa-google {
-  @apply ml-8 w-fit text-xl;
+  @apply ml-12 pt-1 w-fit text-xl;
 }
 
 .signin-google-text {
-  @apply text-lg ml-20;
+  @apply text-lg ml-16;
 }

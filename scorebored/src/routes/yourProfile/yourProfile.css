@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.yourProfile-background {
+  @apply pt-16 pb-80;
+}
+
+.yourProfile-all {
+  margin-left: 25.5rem;
+}
+
+.yourProfile-header-text {
+  @apply text-5xl font-bold pb-2;
+}
+
+.yourProfile-header-subtext {
+  @apply text-2xl font-semibold;
+}
+
+.yourProfile-table {
+  @apply text-lg mt-10 rounded-xl;
+}
+
+.yourProfile-table td,
+th {
+  border: 1px solid;
+}
+.yourProfile-table th {
+  @apply font-extrabold py-2 px-4 text-xl;
+}
+
+.yourProfile-table td {
+  @apply py-2;
+}
+
+.yourProfile-head-no {
+  width: 2rem;
+}
+
+.yourProfile-head-name {
+  width: 13rem;
+}
+
+.yourProfile-head-progress {
+  width: 7rem;
+}
+.yourProfile-head-action {
+  width: 16rem;
+}
+
+.yourProfile-body-no {
+  @apply text-center;
+}
+
+.yourProfile-body-name {
+  @apply pl-3;
+}
+
+.yourProfile-body-progress {
+  @apply text-center;
+}
+
+.yourProfile-btn {
+  @apply py-1 px-3 mx-2 rounded-lg my-1;
+}
+
+.yourProfile-btn {
+  background-color: #44896e;
+}

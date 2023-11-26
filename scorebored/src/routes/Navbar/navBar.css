@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-nav {
+.nav-all {
   @apply flex flex-row justify-center items-center;
 }
 
-nav {
+.nav-all {
   background-color: #182c25;
   color: #f8f0ca;
   justify-content: space-between;
