@@ -6,7 +6,7 @@ import { writable, derived } from "svelte/store";
 
 // Your web app's Firebase configuration (Replace with your actual config)
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_APIKEY,
+  apiKey: "AIzaSyDGP9glve5aN5Ba0gUM43NnmzxFo5CTEJ4",
   authDomain: "scorebored2-e7ffd.firebaseapp.com",
   databaseURL: "https://scorebored2-e7ffd-default-rtdb.firebaseio.com",
   projectId: "scorebored2-e7ffd",
