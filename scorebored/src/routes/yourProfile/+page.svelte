@@ -6,6 +6,7 @@
     import { db } from "$lib/firebase/firebase";
     import { getAuth, onAuthStateChanged } from "firebase/auth";
     import { collection, deleteDoc, doc, onSnapshot, QuerySnapshot } from "firebase/firestore";
+    import "@fortawesome/fontawesome-free/css/all.min.css";
     
     
     $: charts = [];
@@ -41,11 +42,34 @@
     
     async function deleteChart(chartID: string){
         await deleteDoc(doc(db, "scoreboard", chartID));
+        window.location.href = "/yourProfile";
     }
 </script>
 
 
-<NavBar />
+<NavBar/>
+<aside id="default-sidebar" class="fixed top-20 left-0 z-40  transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+    <div class="h-full px-4 py-6 overflow-y-auto">
+       <ul class="space-y-4 font-medium text-lg">
+            {#each charts as chart, no}
+            <li>
+                <a href="/yourProfile/view/{chart.id}" class="p-2 rounded-xl sidebar-row">
+                   <span >{++no}.&nbsp;&nbsp;{chart.BoardName}</span>
+                </a>
+                   <span class="grid-cols-2 sidebar-icons">
+                    <a href="/yourProfile/edit/{chart.id}" class="sidebar-each-icon"><i class="fa-solid fa-pen"></i></a>
+                    <button class="sidebar-each-icon" on:click={ deleteChart(chart.id) }><i class="fa-solid fa-trash"></i></button> 
+                   </span>
+                
+                   
+                
+             </li>
+            {/each}
+          
+        
+       </ul>
+    </div>
+ </aside>
 <div class="yourProfile-background">
     <div class="yourProfile-all">
         <h1 class="yourProfile-header-text">Welcome!</h1>
@@ -69,7 +93,7 @@
                     <td>
                         <a href="/yourProfile/edit/{chart.id}"><button class="yourProfile-btn">Edit</button></a>
                         <a href="/yourProfile/view/{chart.id}"><button class="yourProfile-btn">View</button></a>
-                        <button class="yourProfile-btn" on:click={ deleteChart(chart.id) }>Delete</button>
+                        <button class="yourProfile-btn" >Delete</button>
                     </td>
                     </tr>
                     
