@@ -4,17 +4,22 @@
     import NavBar from "../../../Navbar/+page.svelte";
     import Chart from 'chart.js/auto';
     import { onMount } from 'svelte';
-  import Page from '../../../+page.svelte';
+    import Page from '../../../+page.svelte';
 
     export let data;
 
+    $: chartdb = data.chartdb;
     $: successcount = 0;
+    $: isQuantity = data.chartdb.isQuantity;
+    $: remainingTime = chartdb.timeTarget;
+    $: remainingNum = chartdb.numTarget;
 
     function calculateRate(){
-        for (let i = 0; i < data.chartdb.datapoints.length; i++){
-            successcount += data.chartdb.datapoints[i];
+        for (let i = 0; i < chartdb.datapoints.length; i++){
+            successcount += chartdb.datapoints[i];
         }
-
+        remainingTime = chartdb.timeTarget - chartdb.datapoints.length;
+        remainingNum = chartdb.numTarget - successcount;
     }
 
     function createChart(){
@@ -92,20 +97,54 @@
                 <canvas id="real-chart"></canvas>
             </div>
             <div class="chartPage-stats">
-                <div class="chartPage-current-rate">
-                    <p class="stats-text">Current rate</p>
-                    <p class="stats-number">{Math.round(successcount/data.chartdb.datapoints.length * 10) / 10} 
+                
+                {#if isQuantity} 
+                    <div class="chartPage-first-data">
+                        <p class="stats-number">{Math.round(successcount/chartdb.datapoints.length * 10) / 10} 
+                        </p>
+                        <p class="stats-text">Your current rate</p>
                         
-                    </p>
-                </div>
-                <div class="chartPage-required-rate">
-                    <p class="stats-text">Required rate</p>
-                    <p class="stats-number">{Math.round(data.chartdb.numTarget/data.chartdb.timeTarget * 10) / 10} 
-                </div>
-                <div class="chartPage-percentage">
-                    <p class="stats-text">Percentages</p>
-                    <p class="stats-number">{Math.ceil(successcount/data.chartdb.numTarget*100)}% </p>
-                </div>
+                    </div>
+                    <div class="chartPage-second-data">
+                        <p class="stats-number">{Math.round(remainingNum/remainingTime * 10) / 10} 
+
+                        <p class="stats-text">Required rate</p>
+                    </div>
+                    <div class="chartPage-third-data">
+                        <p class="stats-number">{Math.ceil(successcount/chartdb.numTarget*100)}% </p>
+                        <p class="stats-text">Your current progress</p>
+                    </div>
+
+                    <div class="chartPage-fourth-data">
+                        <!-- Remaining quantity / current rate -->
+                        <p class="stats-number">{Math.round((remainingNum)/(Math.round(successcount/chartdb.datapoints.length * 10) / 10))} {chartdb.X_axis}s</p>
+                        <p class="stats-text">Needed time to finish</p>
+                        
+                    </div>
+                {:else} 
+                    <div class="chartPage-first-data">
+                        <p class="stats-number">{Math.round(successcount/chartdb.datapoints.length * 10) / 10} </p>
+                        <p class="stats-text">Your success rate</p>
+                            
+                        
+                    </div>
+                    <div class="chartPage-second-data">
+                        <p class="stats-number">{Math.round(remainingNum/remainingTime *100) / 10 * 10}%
+                        <p class="stats-text">Required rate</p>
+                        
+                    </div>
+                    <div class="chartPage-third-data">
+                        <p class="stats-number">{Math.ceil(chartdb.numTarget/chartdb.timeTarget*100)}% </p>
+                        <p class="stats-text">Consistency goal</p>
+                        
+                    </div>
+
+                    <div class="chartPage-fourth-data">
+                        <p class="stats-number">{Math.round((successcount + remainingTime)/chartdb.numTarget * 100) / 10 * 10}%</p>
+                        <p class="stats-text">Maximum possible percentage</p>
+                        
+                    </div>
+                {/if}
             </div>
         </div>
     </div>

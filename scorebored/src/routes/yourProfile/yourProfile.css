@@ -68,3 +68,36 @@ th {
 .yourProfile-btn {
   background-color: #44896e;
 }
+
+/* Sidebar CSS begins */
+#default-sidebar {
+  background-color: #29473d;
+  border-radius: 0.375rem;
+  height: 42rem;
+  width: 19rem;
+}
+
+.sidebar-row {
+  color: #f8f0ca;
+}
+
+.sidebar-row:hover {
+  background-color: #44896e;
+}
+
+.sidebar-icons {
+  float: right;
+}
+
+.fa-pen {
+  @apply pr-2;
+}
+
+.sidebar-each-icon {
+  color: #f8f0ca;
+}
+
+.sidebar-each-icon:hover {
+  font-size: 1.4rem;
+  transition: 0.3s ease-in-out;
+}

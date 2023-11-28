@@ -29,7 +29,7 @@
 }
 
 #real-chart {
-  @apply my-6 w-full;
+  @apply my-6 ml-4 w-full;
 }
 
 #real-chart {
@@ -37,11 +37,11 @@
 }
 
 .chartPage-stats {
-  @apply grid grid-rows-3 text-center ml-16 mt-10;
+  @apply grid grid-rows-3 text-left ml-10 mb-2;
 }
 
 .stats-text {
-  @apply text-xl font-semibold;
+  @apply text-sm font-semibold opacity-70;
 }
 
 .stats-number {
